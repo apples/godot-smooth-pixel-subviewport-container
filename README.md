@@ -1,4 +1,4 @@
-# SmoothPixelSubViewportContainer
+# ![icon](icon.svg) SmoothPixelSubViewportContainer
 
 Smooth camera and anti-aliasing filter for pixel-perfect games.
 
@@ -9,3 +9,5 @@ Anti-aliasing inspired by <https://godotshaders.com/shader/sub-pixel-accurate-pi
 ## Documentation
 
 Check documentation comments in the code, or browse the docs in Godot's build-in help viewer.
+
+An example scene is provided.

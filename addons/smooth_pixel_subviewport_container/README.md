@@ -1,5 +1,7 @@
 # SmoothPixelSubViewportContainer
 
+(Main repository: https://github.com/apples/godot-smooth-pixel-subviewport-container)
+
 Smooth camera and anti-aliasing filter for pixel-perfect games.
 
 Smooth camera inspired by <https://www.youtube.com/watch?v=zxVQsi9wnw8>.

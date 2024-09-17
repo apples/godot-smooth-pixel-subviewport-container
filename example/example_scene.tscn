@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/smooth_pixel_subviewport_container/smooth_pixel_subviewport_container.gd" id="2_wx77v"]
 [ext_resource type="PackedScene" uid="uid://ccvueio3bejfb" path="res://example/gameplay.tscn" id="3_3lx35"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qxrvn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brcop"]
 shader = ExtResource("1_slk76")
 shader_parameter/vertex_offset = Vector2(0, 0)
 
@@ -13,7 +13,7 @@ shader_parameter/vertex_offset = Vector2(0, 0)
 [node name="SmoothPixelSubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 2
 texture_repeat = 1
-material = SubResource("ShaderMaterial_qxrvn")
+material = SubResource("ShaderMaterial_brcop")
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 401.0
