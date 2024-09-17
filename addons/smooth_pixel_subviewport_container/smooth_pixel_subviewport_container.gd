@@ -1,5 +1,4 @@
 @tool
-class_name SmoothPixelSubViewportContainer
 extends SubViewportContainer
 
 ## A [SubViewportContainer] which eliminates camera jitter and applies an

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://qcc2elan73h8"]
+
+[ext_resource type="Shader" path="res://addons/smooth_pixel_subviewport_container/smooth_pixel_subviewport_container.gdshader" id="1_slk76"]
+[ext_resource type="Script" path="res://addons/smooth_pixel_subviewport_container/smooth_pixel_subviewport_container.gd" id="2_wx77v"]
+[ext_resource type="PackedScene" uid="uid://ccvueio3bejfb" path="res://example/gameplay.tscn" id="3_3lx35"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qxrvn"]
+shader = ExtResource("1_slk76")
+shader_parameter/vertex_offset = Vector2(0, 0)
+
+[node name="ExampleScene" type="Node"]
+
+[node name="SmoothPixelSubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 2
+texture_repeat = 1
+material = SubResource("ShaderMaterial_qxrvn")
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 401.0
+offset_bottom = 241.0
+script = ExtResource("2_wx77v")
+
+[node name="SubViewport" type="SubViewport" parent="SmoothPixelSubViewportContainer"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(402, 242)
+render_target_update_mode = 4
+
+[node name="Gameplay" parent="SmoothPixelSubViewportContainer/SubViewport" instance=ExtResource("3_3lx35")]
