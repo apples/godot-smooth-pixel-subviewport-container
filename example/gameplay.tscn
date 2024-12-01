@@ -9,7 +9,7 @@ script/source = "extends Camera2D
 var t = 0.0
 
 func _process(delta: float) -> void:
-	t += delta * 0.01
+	t += delta * 0.05
 	position = Vector2(sin(t*7.0),cos(t*13.0)) * 50.0
 "
 

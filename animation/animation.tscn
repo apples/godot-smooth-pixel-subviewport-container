@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdtqgjhi2ej3a"]
+
+[ext_resource type="Script" path="res://animation/animation.gd" id="1_504fp"]
+[ext_resource type="Texture2D" uid="uid://q22i1c8tg5vb" path="res://animation/bg.png" id="2_f1wsd"]
+
+[sub_resource type="GDScript" id="GDScript_n2iei"]
+script/source = "@tool
+extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	global_position = Vector2(200, 120)
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcq01"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.937595, 0.677029, 7.70092e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjigw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.334424, 0.872828, 1)
+
+[node name="Animation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_504fp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(274, 103)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+custom_minimum_size = Vector2(400, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Viewport" type="ColorRect" parent="."]
+clip_children = 1
+layout_mode = 0
+offset_left = 140.0
+offset_top = 10.0
+offset_right = 400.0
+offset_bottom = 190.0
+
+[node name="Bg" type="Sprite2D" parent="Viewport"]
+position = Vector2(60, 110)
+scale = Vector2(10, 10)
+texture = ExtResource("2_f1wsd")
+offset = Vector2(0, -6)
+script = SubResource("GDScript_n2iei")
+
+[node name="ViewportPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 10.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gcq01")
+
+[node name="CameraPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 23.0
+offset_right = 394.0
+offset_bottom = 183.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mjigw")

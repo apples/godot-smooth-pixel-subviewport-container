@@ -1,19 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://qcc2elan73h8"]
+[gd_scene load_steps=6 format=3 uid="uid://qcc2elan73h8"]
 
 [ext_resource type="Shader" path="res://addons/smooth_pixel_subviewport_container/smooth_pixel_subviewport_container.gdshader" id="1_slk76"]
 [ext_resource type="Script" path="res://addons/smooth_pixel_subviewport_container/smooth_pixel_subviewport_container.gd" id="2_wx77v"]
 [ext_resource type="PackedScene" uid="uid://ccvueio3bejfb" path="res://example/gameplay.tscn" id="3_3lx35"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_brcop"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kp674"]
 shader = ExtResource("1_slk76")
 shader_parameter/vertex_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bso2"]
+shader = ExtResource("1_slk76")
+shader_parameter/vertex_offset = null
 
 [node name="ExampleScene" type="Node"]
 
 [node name="SmoothPixelSubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 2
 texture_repeat = 1
-material = SubResource("ShaderMaterial_brcop")
+material = SubResource("ShaderMaterial_kp674")
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 401.0
@@ -28,3 +32,45 @@ size = Vector2i(402, 242)
 render_target_update_mode = 4
 
 [node name="Gameplay" parent="SmoothPixelSubViewportContainer/SubViewport" instance=ExtResource("3_3lx35")]
+
+[node name="SmoothPixelSubViewportContainer2" type="SubViewportContainer" parent="."]
+texture_filter = 2
+texture_repeat = 1
+material = SubResource("ShaderMaterial_2bso2")
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 401.0
+offset_bottom = 241.0
+script = ExtResource("2_wx77v")
+smoothcam_enabled = false
+
+[node name="SubViewport" type="SubViewport" parent="SmoothPixelSubViewportContainer2"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(402, 242)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SmoothPixelSubViewportContainer2/SubViewport"]
+
+[node name="ColorRect" type="ColorRect" parent="SmoothPixelSubViewportContainer2/SubViewport/CanvasLayer"]
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 48.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="SmoothPixelSubViewportContainer2/SubViewport/CanvasLayer"]
+offset_left = 85.0
+offset_top = 24.0
+offset_right = 109.0
+offset_bottom = 48.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="SmoothPixelSubViewportContainer2/SubViewport/CanvasLayer"]
+offset_left = 50.0
+offset_top = 24.0
+offset_right = 74.0
+offset_bottom = 48.0
+color = Color(1, 0, 0, 1)
